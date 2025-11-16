@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provident Properties - Unlock the Door to Affordable Luxury</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for aesthetic vectors -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Font: Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: `rgb(var(--color-primary))`,
+              secondary: `rgb(var(--color-secondary))`,
+              background: `rgb(var(--color-background))`,
+              text: `rgb(var(--color-text))`,
+              accent: `rgb(var(--color-accent))`,
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom Tailwind Configuration (Dark/Luxury Theme) */
+      :root {
+        --color-primary: 250 200 120; /* Soft Gold/Amber */
+        --color-secondary: 20 20 20; /* Deep Dark Gray */
+        --color-background: 10 10 10; /* Near Black */
+        --color-text: 250 250 250; /* Off-White */
+        --color-accent: 40 40 40; /* Dark accent */
+        --hero-bg-position: 50%;
+      }
+
+      /* --- Custom CSS for Layout and Animations --- */
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: rgb(var(--color-background));
+        color: rgb(var(--color-text));
+        scroll-behavior: smooth; /* Smooth scroll to anchors */
+      }
+
+      /* Parallax Hero Background */
+      .hero-parallax {
+        background-image: url("/image/atmosphere.jpg");
+        background-size: cover;
+        background-position: center var(--hero-bg-position); /* Controlled by JS */
+        background-repeat: no-repeat;
+        transition: background-position 0.1s linear; /* Smooth parallax */
+      }
+
+      /* Fixed CTA Button */
+      #fixed-cta {
+        z-index: 100;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 10px 25px rgba(var(--color-primary), 0.3);
+      }
+      #fixed-cta:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 30px rgba(var(--color-primary), 0.5);
+      }
+
+      /* Modal Transitions */
+      .modal-container {
+        transition: opacity 0.3s ease-out;
+      }
+      .modal-content {
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Slide up curve */
+        transform: translateY(100px); /* Start position */
+      }
+      .modal-open .modal-container {
+        opacity: 1;
+      }
+      .modal-open .modal-content {
+        transform: translateY(0);
+      }
+
+      /* Scroll-Based Fade/Slide Animation States */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        will-change: opacity, transform;
+      }
+      .animate-on-scroll.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Staggered Animation Delay Utility */
+      .stagger-1 {
+        transition-delay: 0.1s;
+      }
+      .stagger-2 {
+        transition-delay: 0.2s;
+      }
+      .stagger-3 {
+        transition-delay: 0.3s;
+      }
+      .stagger-4 {
+        transition-delay: 0.4s;
+      }
+      .stagger-5 {
+        transition-delay: 0.5s;
+      }
+      .stagger-6 {
+        transition-delay: 0.6s;
+      }
+
+      /* Project Card Image Overlay */
+      .project-card-image {
+        height: 200px; /* Fixed height for visual consistency on cards */
+        object-fit: cover;
+      }
+
+      /* Ensure smooth link hover effects */
+      a {
+        transition: color 0.3s ease;
+      }
+      a:hover {
+        color: rgb(var(--color-primary));
+      }
+    </style>
+  </head>
+
+  <body class="bg-background">
+    <!-- Fixed Corner CTA Button -->
+    <button
+      id="fixed-cta"
+      class="fixed bottom-6 right-6 p-4 rounded-full bg-primary text-secondary font-bold shadow-xl flex items-center space-x-2 z-50 hover:bg-yellow-400"
+      aria-label="Quick inquiry"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-mail"
+      >
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+      <span class="hidden md:inline">Enquire Now</span>
+    </button>
+
+    <!-- Header & Sticky Navigation -->
+    <header
+      id="header"
+      class="sticky top-0 z-40 bg-background bg-opacity-95 backdrop-blur-sm border-b border-accent shadow-md"
+    >
+      <nav
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <a href="#hero" class="block">
+          <img
+            src="/image/logo.png"
+            alt="Home Aura Realtor Logo"
+            class="h-12 w-auto"
+          />
+        </a>
+        <!-- Desktop Navigation -->
+        <div class="hidden lg:flex space-x-8 items-center">
+          <a
+            href="#project-list"
+            class="text-text hover:text-primary transition duration-300"
+            >Project List</a
+          >
+          <a
+            href="#about-developer"
+            class="text-text hover:text-primary transition duration-300"
+            >About</a
+          >
+          <a
+            href="#floor-plan"
+            class="text-text hover:text-primary transition duration-300"
+            >Floor Plan</a
+          >
+          <a
+            href="#contact"
+            class="text-text hover:text-primary transition duration-300"
+            >Contact</a
+          >
+          <a
+            href="tel:+919880779843"
+            class="text-primary font-bold hover:text-yellow-400 transition duration-300 flex items-center space-x-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-phone-call"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 17.65 17.65 0 0 0 .79 4.39 2 2 0 0 1-.41 2.37l-1.59 1.59a15 15 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.37-.41 17.65 17.65 0 0 0 4.39.79 2 2 0 0 1 1.72 2z"
+              />
+              <path d="M18.97 7.025a5 5 0 0 0-7.07 0" />
+              <path d="M21.97 4.025a9 9 0 0 0-12.72 0" />
+            </svg>
+            <span>+91 98807 79843</span>
+          </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="lg:hidden p-2 rounded-md text-primary hover:bg-accent transition duration-300"
+          aria-label="Toggle navigation menu"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-menu"
+          >
+            <line x1="4" x2="20" y1="12" y2="12" />
+            <line x1="4" x2="20" y1="6" y2="6" />
+            <line x1="4" x2="20" y1="18" y2="18" />
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu Overlay (JS handles visibility) -->
+      <div
+        id="mobile-menu"
+        class="lg:hidden absolute top-full left-0 w-full bg-background border-t border-accent transform transition-transform duration-300 -translate-y-full opacity-0 pointer-events-none"
+      >
+        <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          <a
+            href="#project-list"
+            class="block px-3 py-2 rounded-md text-base font-medium text-text hover:bg-accent mobile-nav-link"
+            >Project List</a
+          >
+          <a
+            href="#about-developer"
+            class="block px-3 py-2 rounded-md text-base font-medium text-text hover:bg-accent mobile-nav-link"
+            >About</a
+          >
+          <a
+            href="#floor-plan"
+            class="block px-3 py-2 rounded-md text-base font-medium text-text hover:bg-accent mobile-nav-link"
+            >Floor Plan</a
+          >
+          <a
+            href="#contact"
+            class="block px-3 py-2 rounded-md text-base font-medium text-text hover:bg-accent mobile-nav-link"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section (Aligned to image style: USP card and Right Form) -->
+      <section
+        id="hero"
+        class="hero-parallax h-[80vh] md:h-[90vh] flex items-center relative"
+      >
+        <div class="absolute inset-0 bg-black opacity-40"></div>
+        <!-- Dark Overlay -->
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-12 gap-8 items-center w-full"
+        >
+          <!-- Left Content: USP Card & Headline (Col 1-5) -->
+          <div class="md:col-span-5 animate-on-scroll space-y-6">
+            <!-- USP Card (Styled closely to image) -->
+            <div
+              class="bg-accent/80 backdrop-blur-sm p-6 rounded-xl shadow-2xl border border-primary/50 text-white"
+            >
+              <p class="text-sm font-semibold text-gray-300 mb-1">
+                Request for:
+              </p>
+              <h1
+                class="text-3xl font-extrabold text-primary leading-tight mb-4"
+              >
+                Provident Properties
+              </h1>
+              <ul class="space-y-2 text-sm mb-4">
+                <li class="flex items-center space-x-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-check-circle text-green-400"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <span>World-Class Luxury Apartments</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-check-circle text-green-400"
+                  >
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                    <path d="m9 11 3 3L22 4" />
+                  </svg>
+                  <span>Ready to move Apartments</span>
+                </li>
+                <li
+                  class="text-lg font-semibold border-t border-accent pt-3 mt-3"
+                >
+                  2 & 3 BHK Apartments & Villas
+                </li>
+              </ul>
+              <div class="mt-2 pt-2 border-t border-accent">
+                <p class="text-sm">
+                  Starting Price:
+                  <span class="text-2xl font-bold text-primary"
+                    >₹62.99 Lacs*</span
+                  >
+                </p>
+              </div>
+            </div>
+
+            <!-- Primary CTA (Download Brochure) -->
+            <button
+              style="background-color: rgb(240, 170, 78)"
+              class="cta-button primary-cta-btn bg-primary text-secondary px-8 py-3 rounded-lg font-bold text-lg shadow-xl hover:bg-yellow-400 hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] w-full md:w-auto"
+            >
+              Download Brochure
+            </button>
+          </div>
+
+          <!-- Right Content: Embedded Form (Col 7-12) -->
+          <div class="md:col-span-5 md:col-start-8 animate-on-scroll stagger-2">
+            <div
+              class="bg-accent/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-primary/50"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                Get In Touch With Us
+              </h3>
+              <form id="contact-form1" class="space-y-4 lead-form">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Enter Number*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <button
+                  id="contact_form_btn1"
+                  style="background-color: rgb(240, 170, 78)"
+                  type="submit"
+                  class="w-full bg-primary text-secondary px-6 py-3 rounded-lg font-bold text-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-[1.02]"
+                >
+                  Submit Inquiry
+                </button>
+                <div id="success_message_col1" class="mt-2"></div>
+                <div id="error_message1" class="error"></div>
+                <p class="text-sm text-center text-gray-400">
+                  By submitting, you agree to our
+                  <a href="#" class="text-primary hover:underline"
+                    >Privacy Policy</a
+                  >.
+                </p>
+                <!-- <p
+                  class="text-green-400 hidden text-center form-success-message"
+                >
+                  Thank you! We received your request.
+                </p>
+                <p class="text-red-400 hidden text-center form-error-message">
+                  Please fill in all required fields correctly.
+                </p> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project List Section (Matches the primary middle section of the image) -->
+      <section id="project-list" class="py-20 bg-secondary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-4xl font-bold text-white mb-2 animate-on-scroll">
+            Project List
+          </h2>
+          <p class="text-xl text-gray-400 mb-12 animate-on-scroll stagger-1">
+            Unlock the Door to Affordable Luxury
+          </p>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1: Puravankara Codename Bliss -->
+            <div
+              class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-1 group overflow-hidden"
+            >
+              <img
+                src="/image/codenamebliss.jpg"
+                alt="Puravankara Codename Bliss Interior"
+                class="project-card-image w-full"
+                loading="lazy"
+              />
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Puravankara Codename Bliss
+                </h3>
+                <p class="text-sm text-gray-400 mb-4">
+                  Heggondanahalli, Electronic City Phase 1
+                </p>
+
+                <p class="text-lg text-primary font-semibold">On Request</p>
+                <p class="text-xs text-gray-500 mb-4">
+                  2 & 3 BHK | 1344 - 1888 Sq.ft.
+                </p>
+
+                <div class="flex space-x-3">
+                  <button
+                    onclick="window.location.href='/puravankara-codename-bliss';"
+                    style="background-color: rgb(240, 170, 78)"
+                    class="text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300"
+                    data-project="PURAVANKARA_CODENAME_BLISS"
+                  >
+                    Request Pricing
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 2: Provident Sunworth City -->
+            <div
+              class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-2 group overflow-hidden"
+            >
+              <img
+                src="/image/sunworthcity.jpg"
+                alt="Provident Sunworth City View"
+                class="project-card-image w-full"
+                loading="lazy"
+              />
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Provident Sunworth City
+                </h3>
+                <p class="text-sm text-gray-400 mb-4">
+                  Off Mysore Road, Bangalore
+                </p>
+
+                <p class="text-lg text-primary font-semibold">
+                  ₹62.99 Lacs* Onwards
+                </p>
+                <p class="text-xs text-gray-500 mb-4">
+                  2 & 3 BHK | 888 - 1344 Sq.ft.
+                </p>
+
+                <div class="flex space-x-3">
+                  <button
+                    onclick="window.location.href='/puravankara-codename-bliss';"
+                    style="background-color: rgb(240, 170, 78)"
+                    class="text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300"
+                    data-project="PROVIDENT_SUNWORTH_CITY"
+                  >
+                    Request Pricing
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 3: Purva Atmosphere -->
+            <div
+              class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-3 group overflow-hidden"
+            >
+              <img
+                src="/image/atmosphere.jpg"
+                alt="Purva Atmosphere Tower"
+                class="project-card-image w-full"
+                loading="lazy"
+              />
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Purva Atmosphere
+                </h3>
+                <p class="text-sm text-gray-400 mb-4">
+                  Off Thanisandra Road, Bangalore
+                </p>
+
+                <p class="text-lg text-primary font-semibold">
+                  ₹2.85 Cr* Onwards
+                </p>
+                <p class="text-xs text-gray-500 mb-4">
+                  3 & 4 BHK | 1800 - 2500 Sq.ft.
+                </p>
+
+                <div class="flex space-x-3">
+                  <button
+                    onclick="window.location.href='/puravankara-codename-bliss';"
+                    style="background-color: rgb(240, 170, 78)"
+                    class="text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300"
+                    data-project="PURVA_ATMOSPHERE"
+                  >
+                    Request Pricing
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 4: Provident Deansgate -->
+            <div
+              class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-4 group overflow-hidden"
+            >
+              <img
+                src="/image/Deansgate.jpg"
+                alt="Provident Deansgate Exterior"
+                class="project-card-image w-full"
+                loading="lazy"
+              />
+              <div class="p-6 text-left">
+                <h3 class="text-xl font-bold text-white mb-1">
+                  Provident Deansgate
+                </h3>
+                <p class="text-sm text-gray-400 mb-4">IVC Road, Bangalore</p>
+
+                <p class="text-lg text-primary font-semibold">
+                  ₹2.09 Cr* Onwards
+                </p>
+                <p class="text-xs text-gray-500 mb-4">
+                  2 & 3 BHK Duplex Apartments
+                </p>
+
+                <div class="flex space-x-3">
+                  <button
+                    onclick="window.location.href='/puravankara-codename-bliss';"
+                    style="background-color: rgb(240, 170, 78)"
+                    class="text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300"
+                  >
+                    View Details
+                  </button>
+                  <button
+                    class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300"
+                    data-project="PROVIDENT_DEANSGATE"
+                  >
+                    Request Pricing
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Card 5: Provident Botanico -->
+            <!-- <div class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-5 group overflow-hidden">
+                        <img src="https://placehold.co/800x450/707070/ffffff?text=Provident+Botanico+Garden" alt="Provident Botanico Garden" class="project-card-image w-full" loading="lazy">
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-bold text-white mb-1">Provident Botanico</h3>
+                            <p class="text-sm text-gray-400 mb-4">Off Whitefield Road, Bangalore</p>
+                            
+                            <p class="text-lg text-primary font-semibold">₹94.99 Lacs* Onwards</p>
+                            <p class="text-xs text-gray-500 mb-4">2 & 3 BHK Apartments</p>
+
+                            <div class="flex space-x-3">
+                                <button style="background-color: rgb(240, 170, 78);"  class=" text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300">
+                                    View Details
+                                </button>
+                                <button class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300">
+                                    Request Pricing
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+
+            <!-- Project Card 6: Purva Tivoli Gardens -->
+            <!-- <div class="bg-accent rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-6 group overflow-hidden">
+                        <img src="https://placehold.co/800x450/808080/ffffff?text=Purva+Tivoli+Gardens" alt="Purva Tivoli Gardens" class="project-card-image w-full" loading="lazy">
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-bold text-white mb-1">Purva Tivoli Gardens</h3>
+                            <p class="text-sm text-gray-400 mb-4">Old Madras Road, Bangalore</p>
+                            
+                            <p class="text-lg text-primary font-semibold">₹1.5 Cr* Onwards</p>
+                            <p class="text-xs text-gray-500 mb-4">3 BHK & Penthouses</p>
+
+                            <div class="flex space-x-3">
+                                <button class=" text-sm bg-primary text-secondary px-4 py-2 rounded font-semibold hover:bg-yellow-400 transition duration-300">
+                                    View Details
+                                </button>
+                                <button class="cta-button text-sm border border-primary text-primary px-4 py-2 rounded font-semibold hover:bg-primary hover:text-secondary transition duration-300">
+                                    Request Pricing
+                                </button>
+                            </div>
+                        </div>
+                    </div> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- About Developer Section (Matches the bottom section of the image) -->
+      <section id="about-developer" class="py-20 bg-background">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-start"
+        >
+          <!-- Left Content: Developer Text -->
+          <div class="animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-4">About Developer</h2>
+            <div
+              style="text-align: justify"
+              class="text-gray-400 space-y-4 text-lg"
+            >
+              <p>
+                Provident Housing Limited is a subsidiary of Puravankara
+                Limited, one of India's leading real estate developers.
+                Established in 2008, it is committed to delivering quality homes
+                at affordable prices.
+              </p>
+              <p>
+                As a subsidiary of Puravankara Limited, the company has a legacy
+                of over four decades in the development sector. To date,
+                Provident has successfully launched 23 million square feet of
+                projects, they have completed over 12.8 million square feet and
+                have around 7.2 million square feet of projects currently under
+                development.
+              </p>
+              <p class="text-white font-semibold">
+                Ready to make an investment or move into your dream home?
+                Contact us today.
+              </p>
+            </div>
+            <a
+              href="tel:+919880779843"
+              class="mt-6 inline-flex items-center space-x-2 text-primary font-bold text-xl hover:text-yellow-400 transition duration-300"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-phone-call"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 17.65 17.65 0 0 0 .79 4.39 2 2 0 0 1-.41 2.37l-1.59 1.59a15 15 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.37-.41 17.65 17.65 0 0 0 4.39.79 2 2 0 0 1 1.72 2z"
+                />
+                <path d="M18.97 7.025a5 5 0 0 0-7.07 0" />
+                <path d="M21.97 4.025a9 9 0 0 0-12.72 0" />
+              </svg>
+              <span>+91 - 98807 79843</span>
+            </a>
+          </div>
+
+          <!-- Right Content: Embedded Contact Form -->
+          <div class="animate-on-scroll stagger-2">
+            <div
+              class="bg-accent/90 backdrop-blur-sm p-8 rounded-xl shadow-2xl border border-primary/50"
+            >
+              <h3 class="text-xl font-bold text-white mb-4">
+                Get In Touch With Us
+              </h3>
+              <form id="contact-form2" class="space-y-4 lead-form">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter Email*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Enter Number*"
+                  required
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Enter Message"
+                  rows="3"
+                  class="w-full p-3 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+                ></textarea>
+                <button
+                  id="contact_form_btn2"
+                  style="background-color: rgb(240, 170, 78)"
+                  type="submit"
+                  class="w-full bg-primary text-secondary px-6 py-3 rounded-lg font-bold text-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-[1.02]"
+                >
+                  Submit Inquiry
+                </button>
+                <div id="success_message_col2" class="mt-2"></div>
+                <div id="error_message2" class="error"></div>
+                <!-- <p
+                  class="text-green-400 hidden text-center form-success-message"
+                >
+                  Thank you! We received your request.
+                </p>
+                <p class="text-red-400 hidden text-center form-error-message">
+                  Please fill in all required fields correctly.
+                </p> -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Floor Plan Section (kept for flow, simplified) -->
+      <section id="floor-plan" class="py-20 bg-secondary relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-4xl font-bold text-white text-center mb-4 animate-on-scroll"
+          >
+            Explore Our Unit Layouts
+          </h2>
+          <p
+            class="text-lg text-gray-400 text-center mb-12 animate-on-scroll stagger-1"
+          >
+            Find the perfect 2 BHK or 3 BHK apartment tailored to your family's
+            needs.
+          </p>
+
+          <div
+            class="relative rounded-xl overflow-hidden shadow-2xl animate-on-scroll stagger-2"
+          >
+            <!-- Floor Plan Image with Blur -->
+            <img
+              src="/image/1.jpg"
+              alt="Sample floor plan of 2BHK apartment"
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <!-- Dark/Blurred Overlay -->
+            <div
+              class="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col justify-center items-center space-y-4"
+            >
+              <h3 class="text-4xl font-extrabold text-white">
+                View Complete Floor Plans
+              </h3>
+              <p class="text-xl text-gray-300">
+                Detailed plans, dimensions, and virtual walkthroughs available.
+              </p>
+              <button
+                style="background-color: rgb(240, 170, 78)"
+                class="cta-button secondary-cta-btn bg-primary text-secondary px-10 py-4 rounded-lg font-bold text-xl shadow-xl hover:bg-yellow-400 hover:shadow-2xl transition duration-300 transform hover:scale-[1.02]"
+              >
+                Request Floor Plan PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section (Simplified) -->
+      <section id="contact" class="py-20 bg-background">
+        <div
+          class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12"
+        >
+          <!-- Contact Form -->
+          <div class="animate-on-scroll">
+            <h2 class="text-4xl font-bold text-white mb-6">
+              Schedule A Site Visit
+            </h2>
+            <p class="text-lg text-gray-400 mb-8">
+              Fill out the form below or call us directly to book your exclusive
+              tour.
+            </p>
+            <form id="contact-form3" class="space-y-5 lead-form">
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Full Name*"
+                required
+                class="w-full p-4 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email Address*"
+                required
+                class="w-full p-4 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+              />
+              <input
+                name="mobile"
+                placeholder="Your Phone Number*"
+                required
+                class="w-full p-4 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+              />
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                class="w-full p-4 rounded-lg bg-secondary border border-accent text-white placeholder-gray-500 focus:ring-primary focus:border-primary"
+              ></textarea>
+              <!-- <select
+                name="interest"
+                class="w-full p-4 rounded-lg bg-secondary border border-accent text-gray-400 focus:ring-primary focus:border-primary"
+              >
+                <option value="" disabled selected>
+                  Select Project Interest
+                </option>
+                <option value="2bhk">2 BHK Apartment</option>
+                <option value="3bhk">3 BHK Apartment</option>
+                <option value="investment">Only Investment Inquiry</option>
+              </select> -->
+              <button
+                id="contact_form_btn3"
+                style="background-color: rgb(240, 170, 78)"
+                type="submit"
+                class="w-full bg-primary text-secondary px-6 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 transition duration-300 transform hover:scale-[1.02]"
+              >
+                Book Your Visit
+              </button>
+              <div id="success_message_col3" class="mt-2"></div>
+              <div id="error_message3" class="error"></div>
+              <!-- <p class="text-green-400 hidden text-center form-success-message">
+                Visit scheduled successfully! We'll call you shortly.
+              </p>
+              <p class="text-red-400 hidden text-center form-error-message">
+                Please ensure all required fields are correctly filled.
+              </p> -->
+            </form>
+          </div>
+
+          <!-- Google Map & Info -->
+          <div class="animate-on-scroll stagger-2">
+            <!-- <h3 class="text-2xl font-bold text-white mb-4">Location: Electronic City, Bangalore</h3> -->
+            <!-- Embedded Google Map iFrame -->
+            <iframe
+              src="/image/providentcontact.jpg"
+              width="100%"
+              height="500"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="rounded-xl shadow-2xl"
+            ></iframe>
+
+            <div class="mt-4 space-y-2 text-lg text-gray-300">
+              <p class="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-phone-call text-primary"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 17.65 17.65 0 0 0 .79 4.39 2 2 0 0 1-.41 2.37l-1.59 1.59a15 15 0 0 0 6 6l1.59-1.59a2 2 0 0 1 2.37-.41 17.65 17.65 0 0 0 4.39.79 2 2 0 0 1 1.72 2z"
+                  />
+                </svg>
+                <a
+                  href="tel:+919880779843"
+                  class="hover:text-primary transition duration-300"
+                  >+91 98807 79843</a
+                >
+              </p>
+              <p class="flex items-center space-x-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="lucide lucide-mail text-primary"
+                >
+                  <rect width="20" height="16" x="2" y="4" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                <a
+                  href="mailto:sales@provident.com"
+                  class="hover:text-primary transition duration-300"
+                  >marketing@homeaurarealtor.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (with Disclaimers from Image) -->
+    <footer class="bg-background border-t border-accent pt-12 pb-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center text-sm text-gray-500 mb-6 space-y-2">
+          <a
+            href="#hero"
+            class="text-2xl font-extrabold text-primary tracking-wider"
+          >
+            <span style="color: #b49b11">HOME </span>
+            <span style="color: #096088">AURA</span>
+          </a>
+          <p>Agent Rera: PRM/KA/RERA/1251/310/AG/250911/006110</p>
+          <p>
+            Disclaimer - The content provided on this website is for
+            informational purposes only. The information, images, and pricing
+            mentioned are subject to change without prior notice, and the
+            availability of properties mentioned are not guaranteed.
+          </p>
+        </div>
+
+        <div
+          class="flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500 border-t border-accent pt-4"
+        >
+          <p>&copy; @2025 Home Aura Realtor. All rights reserved.</p>
+          <button
+            id="back-to-top"
+            aria-label="Back to top"
+            class="mt-4 sm:mt-0 flex items-center space-x-2 text-primary hover:text-yellow-400 transition duration-300 opacity-0 pointer-events-none"
+          >
+            <span>Back to Top</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-arrow-up"
+            >
+              <path d="m5 12 7-7 7 7" />
+              <path d="M12 19V5" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lead Capture Modal Popup (Reused from previous version) -->
+    <div
+      id="lead-modal"
+      class="modal-container fixed inset-0 z-50 flex hidden h-screen items-center justify-center p-4 bg-black bg-opacity-70"
+    >
+      <div
+        class="modal-content w-full max-w-lg bg-gray-900 bg-opacity-95 text-white rounded-xl shadow-3xl p-6 md:p-8 relative border border-gray-800"
+        style="background-color: rgba(24, 24, 27, 0.97)"
+      >
+        <!-- Close Button -->
+        <button
+          style="background-color: var(--secondary-color); border-radius: 10px"
+          class="modal-close absolute top-3 right-3 p-2 text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200"
+          data-modal-close="lead-modal"
+        >
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <h3 class="text-2xl font-bold mb-4 text-[var(--primary-color)]">
+          Get Exclusive Offers & Pricing
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Fill in your details to receive the full brochure and pricing sheet
+          immediately.
+        </p>
+
+        <form id="modal-form" class="space-y-4">
+          <!-- Inside your modal form -->
+          <input type="hidden" id="modal-project" name="project" value="" />
+          <div>
+            <input
+              type="text"
+              id="modal-name"
+              name="name"
+              placeholder="Full Name"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-name-error">
+              Name is required.
+            </p>
+          </div>
+          <div>
+            <input
+              type="email"
+              id="modal-email"
+              name="email"
+              placeholder="Email Address"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-email-error">
+              Enter a valid email address.
+            </p>
+          </div>
+          <div>
+            <input
+              type="tel"
+              id="modal-phone"
+              name="mobile"
+              placeholder="Phone Number"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-phone-error">
+              Phone number is required.
+            </p>
+          </div>
+          <!-- <div>
+            <select id="modal-interest" name="interest" required class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white">
+                        <option value="" disabled selected class="text-gray-500">Select Project Interest (e.g., 2 BHK)</option>
+                        <option value="2BHK">2 BHK</option>
+                        <option value="3BHK_Standard">3 BHK Standard</option>
+                        <option value="3BHK_Grande">3 BHK Grande</option>
+                        <option value="Investment">Investment Enquiry</option>
+                    </select>
+            <p
+              class="text-red-400 text-sm mt-1 hidden"
+              id="modal-interest-error"
+            >
+              Please select an interest.
+            </p>
+          </div> -->
+
+          <button
+            id="modal-submit-btn"
+            style="
+              background-color: var(--secondary-color);
+              border-radius: 10px;
+            "
+            type="submit"
+            class="btn-primary w-full !text-lg !py-3"
+          >
+            SUBMIT
+          </button>
+          <div id="modal-success_message_col" class="mt-2"></div>
+          <div id="modal-error_message" class="error"></div>
+          <!-- <div
+            id="modal-thank-you"
+            class="text-center text-green-400 font-semibold hidden p-3 bg-green-900 rounded-lg border border-green-700"
+          >
+            Success! Check your email for the brochure. Our team will contact
+            you.
+          </div> -->
+        </form>
+      </div>
+    </div>
+    <!-- Vanilla JavaScript for Interactivity and Animations -->
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/index.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- CONSTANTS AND HELPERS ---
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navLinks = document.querySelectorAll(
+          "#header a, .mobile-nav-link"
+        );
+
+        // Selector for all buttons meant to open the modal
+        const ctaButtons = document.querySelectorAll(".cta-button, #fixed-cta");
+
+        const leadForms = document.querySelectorAll(".lead-form");
+        const modal = document.getElementById("lead-modal");
+        const modalCloseButtons = document.querySelectorAll(".modal-close");
+        const heroSection = document.getElementById("hero");
+        const backToTopButton = document.getElementById("back-to-top");
+        const animateElements = document.querySelectorAll(".animate-on-scroll");
+
+        // --- 1. MOBILE MENU TOGGLE ---
+        mobileMenuButton.addEventListener("click", () => {
+          const isExpanded =
+            mobileMenuButton.getAttribute("aria-expanded") === "true";
+          mobileMenuButton.setAttribute("aria-expanded", !isExpanded);
+
+          if (!isExpanded) {
+            mobileMenu.classList.remove(
+              "-translate-y-full",
+              "opacity-0",
+              "pointer-events-none"
+            );
+            mobileMenu.classList.add("translate-y-0", "opacity-100");
+          } else {
+            mobileMenu.classList.remove("translate-y-0", "opacity-100");
+            mobileMenu.classList.add(
+              "-translate-y-full",
+              "opacity-0",
+              "pointer-events-none"
+            );
+          }
+        });
+
+        // --- 2. SMOOTH SCROLL & NAVIGATION ---
+        const smoothScroll = (e) => {
+          e.preventDefault();
+          const targetId = e.currentTarget.getAttribute("href").substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+            window.scrollTo({
+              top:
+                targetElement.offsetTop -
+                document.getElementById("header").offsetHeight, // Account for sticky header
+              behavior: "smooth",
+            });
+          }
+
+          // Close mobile menu after clicking a link
+          if (mobileMenu.classList.contains("opacity-100")) {
+            mobileMenuButton.click();
+          }
+        };
+        navLinks.forEach((link) =>
+          link.addEventListener("click", smoothScroll)
+        );
+
+        // --- 3. MODAL POPUP LOGIC ---
+        const openModal = (e) => {
+          modal.classList.remove("hidden");
+          modal.classList.add("flex", "modal-open");
+          document.body.style.overflow = "hidden"; // Prevent background scrolling
+          const project = e?.currentTarget?.getAttribute("data-project");
+          console.log("Opening modal for project:", project);
+          if (project) {
+            document.getElementById("modal-project").value = project;
+          } else {
+            document.getElementById("modal-project").value = "";
+          }
+        };
+
+        const closeModal = () => {
+          modal.classList.remove("flex", "modal-open");
+          modal.classList.add("hidden");
+          document.body.style.overflow = "";
+          // Reset form visibility if closed manually
+          const form = document.getElementById("modal-form");
+          form.querySelector(".form-success-message")?.classList.add("hidden");
+        };
+
+        // This ensures ALL buttons with the cta-button class open the modal
+        ctaButtons.forEach((button) =>
+          button.addEventListener("click", openModal)
+        );
+
+        modalCloseButtons.forEach((button) =>
+          button.addEventListener("click", closeModal)
+        );
+
+        // Close modal when clicking outside
+        modal.addEventListener("click", (e) => {
+          if (e.target.id === "lead-modal") {
+            closeModal();
+          }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("flex")) {
+            closeModal();
+          }
+        });
+
+        // // --- 4. FORM VALIDATION AND SUBMISSION ---
+        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // const handleFormSubmission = (e) => {
+        //   e.preventDefault();
+
+        //   const form = e.target;
+        //   const requiredInputs = form.querySelectorAll("input[required]");
+        //   let isValid = true;
+
+        //   // Reset messages
+        //   form.querySelector(".form-success-message")?.classList.add("hidden");
+        //   form.querySelector(".form-error-message")?.classList.add("hidden");
+
+        //   requiredInputs.forEach((input) => {
+        //     input.classList.remove("border-red-500");
+        //     if (!input.value.trim()) {
+        //       isValid = false;
+        //       input.classList.add("border-red-500");
+        //     }
+        //     if (
+        //       input.name === "email" &&
+        //       input.value.trim() &&
+        //       !emailRegex.test(input.value.trim())
+        //     ) {
+        //       isValid = false;
+        //       input.classList.add("border-red-500");
+        //     }
+        //   });
+
+        //   if (isValid) {
+        //     // Simulate API submission delay
+        //     setTimeout(() => {
+        //       form.reset();
+        //       form
+        //         .querySelector(".form-success-message")
+        //         ?.classList.remove("hidden");
+
+        //       // Use a short delay before closing the modal for better UX
+        //       if (form.id === "modal-form") {
+        //         setTimeout(closeModal, 1500);
+        //       }
+        //     }, 500);
+        //   } else {
+        //     form
+        //       .querySelector(".form-error-message")
+        //       ?.classList.remove("hidden");
+        //   }
+        // };
+
+        // // This ensures forms with type="submit" buttons are handled as submissions
+        // leadForms.forEach((form) =>
+        //   form.addEventListener("submit", handleFormSubmission)
+        // );
+
+        // --- 5. PARALLAX EFFECT FOR HERO ---
+        const handleParallax = () => {
+          if (!heroSection) return;
+          const scrollY = window.scrollY;
+          // Calculate background position (move 1/3 of the scroll distance)
+          const newPosition = 50 + ((scrollY * 0.3) / window.innerHeight) * 50;
+          // Clamp position to a reasonable range
+          const clampedPosition = Math.min(80, Math.max(20, newPosition));
+
+          heroSection.style.setProperty(
+            "--hero-bg-position",
+            `${clampedPosition}%`
+          );
+        };
+
+        // --- 6. SCROLL OBSERVER FOR FADE-IN/SLIDE-UP (AOS) AND BACK-TO-TOP ---
+        const observerOptions = {
+          root: null, // viewport
+          rootMargin: "0px",
+          threshold: 0.15, // 15% visibility to trigger
+        };
+
+        const observerCallback = (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const target = entry.target;
+              target.classList.add("is-visible");
+
+              // Staggered Animation Logic:
+              if (target.matches(".animate-on-scroll")) {
+                const staggerDelay =
+                  parseFloat(
+                    target.style.getPropertyValue("--stagger-delay")
+                  ) || 0;
+                // Add stagger delay to elements *after* the initial class addition
+                target.style.transitionDelay = `${staggerDelay}s`;
+              }
+
+              // Remove observer after animation for performance
+              observer.unobserve(target);
+            }
+          });
+        };
+
+        const scrollObserver = new IntersectionObserver(
+          observerCallback,
+          observerOptions
+        );
+
+        animateElements.forEach((el, index) => {
+          // Apply stagger delay via custom property before observing
+          el.style.setProperty("--stagger-delay", (index * 0.1) % 0.8);
+          scrollObserver.observe(el);
+        });
+
+        // Back-to-Top Button Visibility
+        const handleScrollVisibility = () => {
+          if (window.scrollY > 500) {
+            backToTopButton.classList.remove(
+              "opacity-0",
+              "pointer-events-none"
+            );
+            backToTopButton.classList.add("opacity-100");
+          } else {
+            backToTopButton.classList.remove("opacity-100");
+            backToTopButton.classList.add("opacity-0", "pointer-events-none");
+          }
+        };
+        backToTopButton.addEventListener("click", smoothScroll); // Uses existing smoothScroll function
+
+        // --- 7. INITIAL & SCROLL EVENTS ---
+        let isScrolling;
+        const debouncedScroll = () => {
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(() => {
+            handleParallax();
+            handleScrollVisibility();
+          }, 10); // Debounce scroll events
+        };
+
+        window.addEventListener("scroll", debouncedScroll);
+        handleParallax(); // Initial call
+        handleScrollVisibility(); // Initial call
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+      });
+    </script>
+  </body>
+</html>

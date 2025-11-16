@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puravankara Bliss - Unlock the Door to Affordable Luxury</title>
+    <!-- Load Tailwind CSS via CDN for utility-first styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons for modern, professional icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Base styles and custom utilities */
+      :root {
+        /* --- DARK THEME VARIABLES --- */
+        --primary-color: #4a90e2; /* Lighter Blue for visibility on dark background */
+        --secondary-color: #f7a738; /* Accent Golden Yellow */
+        --bg-color: #121212; /* Very Dark Background (Black Theme) */
+        --section-bg-light: #1f1f1f; /* Slightly lighter dark for contrast sections */
+        --text-dark: #f0f0f0; /* Light text color for the dark theme */
+        --text-light: #121212; /* Darker text for extreme contrast */
+        --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Stronger shadow for dark mode */
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-color); /* Apply dark background */
+        scroll-behavior: smooth;
+        color: var(--text-dark); /* Apply light default text color */
+      }
+
+      /* Custom utility classes based on the design */
+      .btn-primary {
+        /* Primary Button (Accent Golden Yellow background) */
+        @apply inline-flex items-center justify-center px-8 py-3 text-sm font-semibold tracking-wider transition duration-300 ease-in-out transform rounded-full shadow-lg bg-[var(--secondary-color)] text-[var(--text-light)] hover:bg-[#e09832] hover:scale-[1.02] hover:shadow-2xl;
+      }
+
+      .btn-secondary {
+        /* Secondary Button - UPDATED to golden yellow background, keeping smaller size */
+        @apply inline-flex items-center justify-center px-6 py-2 text-sm font-medium transition duration-300 ease-in-out transform rounded-full shadow-lg bg-[var(--secondary-color)] text-[var(--text-light)] hover:bg-[#e09832] hover:scale-[1.02] hover:shadow-2xl;
+      }
+
+      /* New style for frosted card effect (Glassmorphism) */
+      .glass-card {
+        background-color: rgba(
+          31,
+          31,
+          31,
+          0.7
+        ); /* Dark background with transparency */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+
+      /* Hero section background and parallax effect */
+      .hero-bg {
+        background-image: url("/image/codenamebliss.jpg"); /* Placeholder image */
+        background-size: cover;
+        background-position: center 50%; /* Start at center */
+        background-attachment: fixed; /* Simulates Parallax on Desktop */
+      }
+      @media (max-width: 1024px) {
+        .hero-bg {
+          background-attachment: scroll; /* Disable fixed attachment on mobile for performance */
+          background-position: center;
+        }
+      }
+
+      /* Animation Classes (using opacity and transform for smooth transitions) */
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+
+      .animate-active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger animation delay utility (JS will add this) */
+      .stagger-delay-1 {
+        transition-delay: 0.1s;
+      }
+      .stagger-delay-2 {
+        transition-delay: 0.2s;
+      }
+      .stagger-delay-3 {
+        transition-delay: 0.3s;
+      }
+      .stagger-delay-4 {
+        transition-delay: 0.4s;
+      }
+      .stagger-delay-5 {
+        transition-delay: 0.5s;
+      }
+      .stagger-delay-6 {
+        transition-delay: 0.6s;
+      }
+      .stagger-delay-7 {
+        transition-delay: 0.7s;
+      }
+      .stagger-delay-8 {
+        transition-delay: 0.8s;
+      }
+
+      /* Modal Styles */
+      .modal-container {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s, opacity 0.3s ease-in-out;
+      }
+      .modal-open {
+        visibility: visible;
+        opacity: 1;
+      }
+      .modal-content {
+        transform: translateY(100px);
+        transition: transform 0.4s ease-out;
+      }
+      .modal-open .modal-content {
+        transform: translateY(0);
+      }
+
+      /* Fixed Corner CTA */
+      #fixed-cta {
+        z-index: 50;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Sticky Header & Navigation -->
+    <header
+      id="header"
+      class="sticky top-0 z-40 w-full bg-[var(--section-bg-light)] bg-opacity-95 shadow-md backdrop-blur-sm transition-shadow duration-300 border-b border-gray-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo/Branding -->
+          <a href="#hero" class="block">
+            <img
+              src="/image/logo.png"
+              alt="Home Aura Realtor Logo"
+              class="h-12 w-auto"
+            />
+          </a>
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex space-x-8">
+            <a
+              href="#overview"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Overview</a
+            >
+            <a
+              href="#highlights"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Highlights</a
+            >
+            <a
+              href="#amenities"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Amenities</a
+            >
+            <a
+              href="#floorplan"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Floor Plan</a
+            >
+            <a
+              href="#location"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Location</a
+            >
+            <a
+              href="#contact"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200 text-sm font-medium"
+              >Contact</a
+            >
+          </nav>
+
+          <!-- Primary Header CTA (Desktop) -->
+          <button
+            style="
+              background-color: var(--secondary-color);
+              border-radius: 10px;
+            "
+            id="header-cta"
+            class="hidden md:block btn-primary text-xs !py-2 !px-4"
+            data-modal-target="lead-modal"
+          >
+            Talk to Our Property Expert
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button
+            style="
+              background-color: var(--secondary-color);
+              border-radius: 10px;
+            "
+            id="mobile-menu-btn"
+            class="md:hidden p-2 text-[var(--primary-color)] hover:bg-gray-800 rounded-md"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Menu (Hidden by default) -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-[var(--section-bg-light)] shadow-xl border-t border-gray-800"
+      >
+        <nav class="flex flex-col p-4 space-y-2">
+          <a
+            href="#overview"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Overview</a
+          >
+          <a
+            href="#highlights"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Highlights</a
+          >
+          <a
+            href="#amenities"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Amenities</a
+          >
+          <a
+            href="#floorplan"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Floor Plan</a
+          >
+          <a
+            href="#location"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Location</a
+          >
+          <a
+            href="#contact"
+            class="block py-2 px-3 text-gray-300 hover:bg-gray-800 rounded-md text-base font-medium mobile-nav-link"
+            >Contact</a
+          >
+          <button
+            class="w-full mt-4 btn-primary !py-2"
+            data-modal-target="lead-modal"
+          >
+            Enquire Now
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- 1. Hero Section - Updated with Project Details and Form Overlay -->
+      <section
+        id="hero"
+        class="hero-bg relative h-[100vh] min-h-[700px] flex items-center justify-center pt-16"
+      >
+        <!-- Overlay to improve readability -->
+        <div class="absolute inset-0 bg-black opacity-30"></div>
+
+        <!-- Hero Content Grid -->
+        <div
+          class="relative z-10 max-w-7xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-12 items-start"
+        >
+          <!-- LEFT: Project Detail Card (Glassmorphism Effect) -->
+          <div
+            class="lg:col-span-1 p-6 md:p-8 rounded-2xl glass-card text-white animate-on-scroll"
+          >
+            <p class="text-sm font-medium uppercase text-gray-400 mb-1">
+              Hebbagodi, Bengaluru
+            </p>
+            <h1 class="text-3xl font-bold mb-6 text-white">
+              Puravankara Bliss
+            </h1>
+
+            <div class="space-y-4 mb-8 text-sm">
+              <!-- Detail 1: Open Space -->
+              <div class="flex items-center space-x-3">
+                <i
+                  data-lucide="sun"
+                  class="w-5 h-5 text-[var(--secondary-color)]"
+                ></i>
+                <span class="text-gray-300">88% Open Space</span>
+              </div>
+              <!-- Detail 2: Status -->
+              <div class="flex items-center space-x-3">
+                <i
+                  data-lucide="rocket"
+                  class="w-5 h-5 text-[var(--secondary-color)]"
+                ></i>
+                <span class="text-gray-300">Status: **Pre-Launch**</span>
+              </div>
+              <!-- Detail 3: Total Tower -->
+              <div class="flex items-center space-x-3">
+                <i
+                  data-lucide="building"
+                  class="w-5 h-5 text-[var(--secondary-color)]"
+                ></i>
+                <span class="text-gray-300">Total Tower : **3 Tower**</span>
+              </div>
+              <!-- Detail 4: Total Units -->
+              <div class="flex items-center space-x-3">
+                <i
+                  data-lucide="home"
+                  class="w-5 h-5 text-[var(--secondary-color)]"
+                ></i>
+                <span class="text-gray-300"
+                  >Total No of Unit : **356 Unit**</span
+                >
+              </div>
+              <!-- Detail 5: Land Area -->
+              <div class="flex items-center space-x-3">
+                <i
+                  data-lucide="map"
+                  class="w-5 h-5 text-[var(--secondary-color)]"
+                ></i>
+                <span class="text-gray-300"
+                  >Total Land Area : **6.9 Acres**</span
+                >
+              </div>
+            </div>
+
+            <div class="p-4 bg-gray-900 rounded-lg mb-4">
+              <p class="font-semibold text-lg text-[var(--primary-color)]">
+                3, 4, 5 BHK Luxury Apartments
+              </p>
+            </div>
+
+            <div class="text-xl font-extrabold text-[var(--secondary-color)]">
+              Starting Price: **On Request**
+            </div>
+          </div>
+
+          <!-- MIDDLE: Spacer/Book image (optional, kept empty for focus) -->
+          <div class="hidden lg:block lg:col-span-1">
+            <!-- This space keeps the Project Card and Form separated, mimicking the original image layout -->
+          </div>
+
+          <!-- RIGHT: Property Expert Form Card (Glassmorphism Effect) -->
+          <div
+            class="lg:col-span-1 p-6 md:p-8 rounded-2xl glass-card text-white animate-on-scroll stagger-delay-1"
+          >
+            <h2
+              class="text-xl font-bold mb-4 text-[var(--primary-color)] text-center"
+            >
+              Talk To Our Property Expert!
+            </h2>
+            <form id="hero-contact-form" class="space-y-4">
+              <div>
+                <input
+                  type="text"
+                  id="hero-name"
+                  name="name"
+                  placeholder="Enter Name"
+                  required
+                  class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                />
+                <p
+                  class="text-red-400 text-sm mt-1 hidden"
+                  id="hero-name-error"
+                >
+                  Name is required.
+                </p>
+              </div>
+              <div>
+                <input
+                  type="email"
+                  id="hero-email"
+                  name="email"
+                  placeholder="Enter Email"
+                  required
+                  class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                />
+                <p
+                  class="text-red-400 text-sm mt-1 hidden"
+                  id="hero-email-error"
+                >
+                  Enter a valid email address.
+                </p>
+              </div>
+              <div class="flex space-x-2">
+                <!-- Simple country code prefix for single file implementation -->
+                <input
+                  type="text"
+                  value="+91"
+                  readonly
+                  class="w-16 p-3 border border-gray-600 rounded-lg bg-gray-800 text-gray-400 text-center select-none"
+                />
+                <input
+                  type="tel"
+                  id="hero-phone"
+                  name="mobile"
+                  placeholder="Enter Number"
+                  required
+                  class="flex-1 p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                />
+              </div>
+              <p class="text-red-400 text-sm mt-1 hidden" id="hero-phone-error">
+                Phone number is required.
+              </p>
+
+              <div>
+                <textarea
+                  id="hero-message"
+                  name="message"
+                  placeholder="Enter Message (Optional)"
+                  rows="2"
+                  class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                ></textarea>
+              </div>
+
+              <!-- <div class="flex items-start space-x-2 pt-2">
+                <input
+                  type="checkbox"
+                  id="hero-consent"
+                  required
+                  class="mt-1 rounded border-gray-600 text-[var(--secondary-color)] bg-gray-900 focus:ring-[var(--secondary-color)]"
+                />
+                <label
+                  for="hero-consent"
+                  class="text-[10px] text-gray-400 leading-tight"
+                >
+                  I authorize company representatives to Call, SMS, Email or
+                  WhatsApp me about its products and offers. This consent
+                  overrides any registration for DNC/NDNC.
+                </label>
+              </div> -->
+              <button
+                id="contact_form_btn1"
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 10px;
+                "
+                type="submit"
+                class="btn-primary w-full !text-lg !py-3 !mt-6"
+              >
+                Submit Now
+              </button>
+              <div id="success_message_col1" class="mt-2"></div>
+              <div id="error_message1" class="error"></div>
+              <div
+                id="hero-thank-you"
+                class="text-center text-green-400 font-semibold hidden p-3 bg-green-900 rounded-lg border border-green-700"
+              >
+                Thank you! Our expert will contact you shortly.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Scroll Indicator (moved to the bottom for space) -->
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 z-10">
+          <a
+            href="#overview"
+            class="text-white opacity-70 hover:opacity-100 transition duration-300"
+          >
+            <svg
+              class="w-8 h-8 mx-auto mb-1 animate-bounce"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+            <span class="text-sm">Scroll Down</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 2. Overview Section -->
+      <section id="overview" class="py-16 md:py-24 bg-[var(--bg-color)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="animate-on-scroll">
+              <h2
+                class="text-3xl md:text-4xl font-bold mb-4 text-[var(--primary-color)]"
+              >
+                Puravankara Code Name Bliss
+              </h2>
+              <p style="text-align: justify" class="text-lg text-gray-300 mb-6">
+                Puravankara Codename Bliss Hebbagodi is an upcoming residential
+                project by Puravankara Group, located at Hebbagodi Village in
+                Attibele, Bangalore. The project is spread across 7 acres of
+                prime land, the project is planned with modern architecture and
+                open green landscapes. It will offer spacious 2 BHK and 3 BHK
+                apartments designed for urban families who value both comfort
+                and style. With wide balconies, good ventilation, and
+                vastu-friendly layouts, every home here is crafted to provide a
+                relaxed living experience. The community will also feature
+                lifestyle amenities like a clubhouse, swimming pool, gym,
+                gardens, and dedicated play areas, making it suitable for all
+                age groups
+              </p>
+              <!-- <ul class="space-y-3 text-gray-300 list-disc list-inside">
+                            <li><strong class="font-semibold text-white">Units per Floor: 4</strong> </li>
+                            <li><strong class="font-semibold text-white">Construction: 12% of total area, Vastu Compliant</strong> </li>
+                            <li><strong class="font-semibold text-white">
+Lifts: 3 Passenger Lifts, 1 Service Lift</strong> </li>
+                        </ul> -->
+              <button
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 5px;
+                "
+                class="mt-8 btn-secondary text-base px-5 py-2 font-semibold"
+                data-modal-target="lead-modal"
+              >
+                Get Details
+              </button>
+            </div>
+
+            <!-- Image (Lazy Loaded) -->
+            <div class="animate-on-scroll stagger-delay-1">
+              <img
+                src="/image/codenameg6.jpg"
+                data-src="/image/codenameg6.jpg"
+                alt="Interior image of a spacious living room."
+                loading="lazy"
+                class="rounded-xl shadow-2xl w-full h-auto object-cover lazy-image"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Highlights/Features Section -->
+      <section
+        id="highlights"
+        class="py-16 md:py-24 bg-[var(--section-bg-light)]"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-3 text-[var(--primary-color)] animate-on-scroll"
+          >
+            Exceptional Properties, Exceptional Clients
+          </h2>
+          <p
+            class="text-lg text-gray-300 mb-12 animate-on-scroll stagger-delay-1"
+          >
+            Discover the key differentiators that set Puravankara Bliss apart.
+          </p>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature Card 1 -->
+            <div
+              class="p-6 bg-[#292929] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-delay-2 group"
+            >
+              <div
+                class="text-[var(--secondary-color)] mb-4 flex justify-center"
+              >
+                <i data-lucide="shield-check" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold mb-3 text-[var(--primary-color)]"
+              >
+                Vastu Compliant
+              </h3>
+              <p class="text-gray-400 text-sm">
+                All corner apartments with 100% vastu complaince
+              </p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div
+              class="p-6 bg-[#292929] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-delay-3 group"
+            >
+              <div
+                class="text-[var(--secondary-color)] mb-4 flex justify-center"
+              >
+                <i data-lucide="map-pin" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold mb-3 text-[var(--primary-color)]"
+              >
+                Strategic Location
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Located minutes away from IT parks, major hospitals, and top
+                educational institutions.
+              </p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div
+              class="p-6 bg-[#292929] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 animate-on-scroll stagger-delay-4 group"
+            >
+              <div
+                class="text-[var(--secondary-color)] mb-4 flex justify-center"
+              >
+                <i data-lucide="leaf" class="w-10 h-10"></i>
+              </div>
+              <h3
+                class="text-xl font-semibold mb-3 text-[var(--primary-color)]"
+              >
+                Sustainable Living
+              </h3>
+              <p class="text-gray-400 text-sm">
+                Premium vitrified tiles in living, dining, and bedrooms
+              </p>
+            </div>
+          </div>
+
+          <!-- Price Banding/Comparison -->
+          <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <!-- Banding Card 1 (2 BHK) -->
+            <div
+              class="p-8 border border-gray-700 rounded-xl shadow-xl bg-[#292929] animate-on-scroll stagger-delay-5"
+            >
+              <h4 class="text-2xl font-bold text-[var(--primary-color)] mb-2">
+                3 BHK
+              </h4>
+              <p
+                class="text-4xl font-extrabold text-[var(--secondary-color)] mb-4"
+              >
+                On Request*
+              </p>
+              <p class="text-gray-400 mb-6">Starting Price</p>
+              <button
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 5px;
+                "
+                class="mt-8 btn-secondary text-base px-5 py-2 font-semibold"
+                data-modal-target="lead-modal"
+              >
+                Enquiry Now
+              </button>
+            </div>
+
+            <!-- Banding Card 2 (3 BHK Standard) -->
+            <div
+              class="p-8 border-2 border-[var(--secondary-color)] rounded-xl shadow-2xl bg-[#292929] transform scale-[1.05] relative animate-on-scroll stagger-delay-6"
+            >
+              <span
+                class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--secondary-color)] text-[var(--text-light)] text-xs font-bold px-3 py-1 rounded-full uppercase"
+                >Most Popular</span
+              >
+              <h4 class="text-2xl font-bold text-[var(--primary-color)] mb-2">
+                4 BHK
+              </h4>
+              <p
+                class="text-4xl font-extrabold text-[var(--secondary-color)] mb-4"
+              >
+                On Request*
+              </p>
+              <p class="text-gray-400 mb-6">Starting Price</p>
+              <button
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 5px;
+                "
+                class="mt-8 btn-secondary text-base px-5 py-2 font-semibold"
+                data-modal-target="lead-modal"
+              >
+                Enquiry Now
+              </button>
+            </div>
+
+            <!-- Banding Card 3 (3 BHK Grande) -->
+            <div
+              class="p-8 border border-gray-700 rounded-xl shadow-xl bg-[#292929] animate-on-scroll stagger-delay-7"
+            >
+              <h4 class="text-2xl font-bold text-[var(--primary-color)] mb-2">
+                5 BHK
+              </h4>
+              <p
+                class="text-4xl font-extrabold text-[var(--secondary-color)] mb-4"
+              >
+                On Request*
+              </p>
+              <p class="text-gray-400 mb-6">Starting Price</p>
+              <button
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 5px;
+                "
+                class="mt-8 btn-secondary text-base px-5 py-2 font-semibold"
+                data-modal-target="lead-modal"
+              >
+                Enquiry Now
+              </button>
+            </div>
+          </div>
+
+          <p class="text-xs text-gray-500 mt-8">
+            *T&C Apply. Prices are subject to change without prior notice.
+          </p>
+        </div>
+      </section>
+
+      <!-- 4. Amenities Section -->
+      <section
+        id="amenities"
+        class="py-16 md:py-24 bg-[var(--primary-color)] text-white"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-3">
+            Purvankara Code Name Bliss Amenities
+          </h2>
+          <p class="text-lg text-gray-200 mb-12">
+            Experience luxury living with our exceptional amenities.
+          </p>
+
+          <!-- Amenities Grid -->
+          <div
+            id="amenities-grid"
+            class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8"
+          >
+            <!-- Mini Theater -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll"
+            >
+              <i
+                data-lucide="tv"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Mini Theater</span>
+            </div>
+
+            <!-- Gymnasium -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll stagger-delay-1"
+            >
+              <i
+                data-lucide="dumbbell"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Gymnasium</span>
+            </div>
+
+            <!-- Club House -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll stagger-delay-2"
+            >
+              <i
+                data-lucide="users"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Club House</span>
+            </div>
+
+            <!-- Swimming Pool -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll stagger-delay-3"
+            >
+              <i
+                data-lucide="waves"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Swimming Pool</span>
+            </div>
+
+            <!-- Cafe -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll stagger-delay-4"
+            >
+              <i
+                data-lucide="coffee"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Cafe</span>
+            </div>
+
+            <!-- Kids Play Area -->
+            <div
+              class="amenity-item flex flex-col items-center p-4 rounded-lg hover:bg-gray-700 transition-colors duration-300 animate-on-scroll stagger-delay-5"
+            >
+              <i
+                data-lucide="baby"
+                class="w-10 h-10 mb-3 text-[var(--secondary-color)]"
+              ></i>
+              <span class="text-sm font-medium">Kids Play Area</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Floor Plan Section -->
+      <section id="floorplan" class="py-16 md:py-24 bg-[var(--bg-color)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-3 text-[var(--primary-color)] animate-on-scroll"
+          >
+            Floor Plans
+          </h2>
+          <p
+            class="text-lg text-gray-300 mb-12 animate-on-scroll stagger-delay-1"
+          >
+            Explore our thoughtfully designed floor plans for optimal living.
+          </p>
+
+          <!-- Floor Plan Image with Overlay CTA -->
+          <div
+            class="relative w-full max-w-4xl mx-auto rounded-xl shadow-2xl overflow-hidden animate-on-scroll stagger-delay-2"
+          >
+            <!-- Floor Plan Image (Lazy Loaded) -->
+            <img
+              src="/image/1.jpg"
+              data-src="/image/1.jpg"
+              alt="Master floor plan overview"
+              loading="lazy"
+              class="w-full h-auto object-cover lazy-image filter blur-sm"
+            />
+
+            <!-- Blurred Overlay and CTA -->
+            <div
+              class="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-60"
+            >
+              <h3 class="text-3xl font-bold text-white mb-4">
+                Get Floor Plans
+              </h3>
+              <p class="text-gray-200 text-lg mb-6 max-w-sm">
+                Get the detailed, high-resolution floor plans instantly.
+              </p>
+              <button
+                style="
+                  background-color: var(--secondary-color);
+                  border-radius: 10px;
+                "
+                class="btn-primary !text-lg !py-3 !px-8"
+                data-modal-target="lead-modal"
+              >
+                Download Floor Plans PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section id="testimonials" class="py-16 md:py-24 bg-[var(--section-bg-light)]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-3 text-[var(--primary-color)] animate-on-scroll">
+                    What Our Clients Say
+                </h2>
+                <p class="text-lg text-gray-300 mb-12 animate-on-scroll stagger-delay-1">
+                    Trusted by families and investors across Bangalore.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> -->
+      <!-- Testimonial 1 -->
+      <!-- <div class="p-8 bg-[#292929] rounded-xl shadow-lg animate-on-scroll stagger-delay-2">
+                        <p class="text-5xl text-[var(--secondary-color)] font-serif mb-4">“</p>
+                        <p class="text-gray-300 italic mb-4">"The quality of construction and the attention to detail is truly world-class. We are delighted with our new home."</p>
+                        <p class="font-semibold text-[var(--primary-color)]">- Rohan Sharma</p>
+                        <p class="text-sm text-gray-500">New Homeowner, Bliss</p>
+                    </div> -->
+      <!-- Testimonial 2 -->
+      <!-- <div class="p-8 bg-[#292929] rounded-xl shadow-lg animate-on-scroll stagger-delay-3">
+                        <p class="text-5xl text-[var(--secondary-color)] font-serif mb-4">“</p>
+                        <p class="text-gray-300 italic mb-4">"A perfect location near my workplace in ITPL. The amenities package is excellent, especially the gym."</p>
+                        <p class="font-semibold text-[var(--primary-color)]">- Anjali Rao</p>
+                        <p class="text-sm text-gray-500">IT Professional & Resident</p>
+                    </div> -->
+      <!-- Testimonial 3 -->
+      <!-- <div class="p-8 bg-[#292929] rounded-xl shadow-lg animate-on-scroll stagger-delay-4">
+                        <p class="text-5xl text-[var(--secondary-color)] font-serif mb-4">“</p>
+                        <p class="text-gray-300 italic mb-4">"As an investor, the expected rental yield is very promising. The developer's reputation is unmatched."</p>
+                        <p class="font-semibold text-[var(--primary-color)]">- Venkatesh Murthy</p>
+                        <p class="text-sm text-gray-500">Real Estate Investor</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+      <!-- 7. Location Section -->
+      <section id="location" class="py-16 md:py-24 bg-[var(--bg-color)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-3 text-[var(--primary-color)] text-center animate-on-scroll"
+          >
+            Puravankara Code Name Bliss Location
+          </h2>
+          <p
+            class="text-lg text-gray-300 mb-12 text-center animate-on-scroll stagger-delay-1"
+          >
+            Strategically located for seamless connectivity to key city
+            landmarks.
+          </p>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Location Highlights -->
+            <div class="space-y-4 animate-on-scroll stagger-delay-2">
+              <!-- Location Item 1 -->
+              <div
+                class="p-4 bg-[#292929] rounded-lg shadow-md flex justify-between items-center hover:shadow-lg transition-shadow duration-300 border border-gray-800"
+              >
+                <span
+                  class="font-medium text-[var(--primary-color)] flex items-center"
+                  ><i data-lucide="hospital" class="w-5 h-5 mr-2"></i>Distance
+                  from Hosur Road:
+                </span>
+                <span class="text-gray-400 font-semibold">1 KM</span>
+              </div>
+              <!-- Location Item 2 -->
+              <div
+                class="p-4 bg-[#292929] rounded-lg shadow-md flex justify-between items-center hover:shadow-lg transition-shadow duration-300 border border-gray-800"
+              >
+                <span
+                  class="font-medium text-[var(--primary-color)] flex items-center"
+                  ><i data-lucide="briefcase" class="w-5 h-5 mr-2"></i>Huskur
+                  Metro Station:</span
+                >
+                <span class="text-gray-400 font-semibold">1.2 Km</span>
+              </div>
+              <!-- Location Item 3 -->
+              <div
+                class="p-4 bg-[#292929] rounded-lg shadow-md flex justify-between items-center hover:shadow-lg transition-shadow duration-300 border border-gray-800"
+              >
+                <span
+                  class="font-medium text-[var(--primary-color)] flex items-center"
+                  ><i data-lucide="school" class="w-5 h-5 mr-2"></i>Phoenix
+                  Marketcity :</span
+                >
+                <span class="text-gray-400 font-semibold">9 Km</span>
+              </div>
+              <!-- Location Item 4 -->
+              <div
+                class="p-4 bg-[#292929] rounded-lg shadow-md flex justify-between items-center hover:shadow-lg transition-shadow duration-300 border border-gray-800"
+              >
+                <span
+                  class="font-medium text-[var(--primary-color)] flex items-center"
+                  ><i data-lucide="shopping-bag" class="w-5 h-5 mr-2"></i
+                  >Columbia Asia Hospital:
+                </span>
+                <span class="text-gray-400 font-semibold">6 Km</span>
+              </div>
+              <!-- Location Item 5 -->
+              <div
+                class="p-4 bg-[#292929] rounded-lg shadow-md flex justify-between items-center hover:shadow-lg transition-shadow duration-300 border border-gray-800"
+              >
+                <span
+                  class="font-medium text-[var(--primary-color)] flex items-center"
+                  ><i data-lucide="train" class="w-5 h-5 mr-2"></i>Delhi Public
+                  School</span
+                >
+                <span class="text-gray-400 font-semibold">5 Km</span>
+              </div>
+            </div>
+
+            <!-- Google Map Embed -->
+            <div
+              class="relative overflow-hidden rounded-xl shadow-2xl h-80 lg:h-full animate-on-scroll stagger-delay-3 border border-gray-800"
+            >
+              <!-- Use a placeholder or a default iframe. Replace 'YOUR_GOOGLE_MAPS_EMBED_URL' with an actual map embed URL -->
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d74461.4614128359!2d77.60968427338959!3d12.896583627291617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6d278f7ada67%3A0x4d031c03fc73bd01!2sCodename%20Bliss!5e1!3m2!1sen!2sin!4v1763203209771!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Contact Section (Integrated Form) -->
+      <section id="contact" class="py-16 md:py-24 bg-[var(--section-bg-light)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Left: Contact Content -->
+            <div class="animate-on-scroll">
+              <h2
+                class="text-3xl md:text-4xl font-bold mb-4 text-[var(--primary-color)]"
+              >
+                Ready to Take the Next Step?
+              </h2>
+              <p class="text-lg text-gray-300 mb-8">
+                Our team is ready to guide you through floor plans, pricing, and
+                site visits. Schedule a free consultation today!
+              </p>
+              <div class="space-y-4 text-gray-300">
+                <p class="flex items-center">
+                  <i
+                    data-lucide="phone"
+                    class="w-5 h-5 mr-3 text-[var(--secondary-color)]"
+                  ></i>
+                  +91 98807 79843
+                </p>
+                <p class="flex items-center">
+                  <i
+                    data-lucide="mail"
+                    class="w-5 h-5 mr-3 text-[var(--secondary-color)]"
+                  ></i>
+                  marketing@homeaurarealtor.com
+                </p>
+                <p class="flex items-center">
+                  <i
+                    data-lucide="map-pin"
+                    class="w-5 h-5 mr-3 text-[var(--secondary-color)]"
+                  ></i>
+                  Koramangala, Bangalore-560095
+                </p>
+              </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div
+              class="p-8 bg-[var(--bg-color)] rounded-xl shadow-2xl animate-on-scroll stagger-delay-1 border border-gray-800"
+            >
+              <h3 class="text-2xl font-bold mb-6 text-[var(--primary-color)]">
+                Request a Callback
+              </h3>
+              <form id="contact-form" class="space-y-4">
+                <div>
+                  <input
+                    type="text"
+                    id="contact-name"
+                    name="name"
+                    placeholder="Full Name"
+                    required
+                    class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                  />
+                  <p
+                    class="text-red-400 text-sm mt-1 hidden"
+                    id="contact-name-error"
+                  >
+                    Name is required.
+                  </p>
+                </div>
+                <div>
+                  <input
+                    type="email"
+                    id="contact-email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                    class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                  />
+                  <p
+                    class="text-red-400 text-sm mt-1 hidden"
+                    id="contact-email-error"
+                  >
+                    Enter a valid email address.
+                  </p>
+                </div>
+                <div>
+                  <input
+                    type="tel"
+                    id="contact-phone"
+                    name="mobile"
+                    placeholder="Phone Number"
+                    required
+                    class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+                  />
+                  <p
+                    class="text-red-400 text-sm mt-1 hidden"
+                    id="contact-phone-error"
+                  >
+                    Phone number is required.
+                  </p>
+                </div>
+                <div>
+                  <!-- <select id="contact-interest" name="interest" required class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white">
+                                    <option value="" disabled selected class="text-gray-500">Select Project Interest (e.g., 2 BHK)</option>
+                                    <option value="2BHK">2 BHK</option>
+                                    <option value="3BHK_Standard">3 BHK Standard</option>
+                                    <option value="3BHK_Grande">3 BHK Grande</option>
+                                    <option value="Investment">Investment Enquiry</option>
+                                </select> -->
+                  <p
+                    class="text-red-400 text-sm mt-1 hidden"
+                    id="contact-interest-error"
+                  >
+                    Please select an interest.
+                  </p>
+                </div>
+                <button
+                  id="contact_form_btn2"
+                  style="
+                    background-color: var(--secondary-color);
+                    border-radius: 10px;
+                  "
+                  type="submit"
+                  class="btn-primary w-full !text-base !py-3"
+                >
+                  Submit Request
+                </button>
+                <div id="success_message_col2" class="mt-2"></div>
+                <div id="error_message2" class="error"></div>
+                <div
+                  id="contact-thank-you"
+                  class="text-center text-green-400 font-semibold hidden p-3 bg-green-900 rounded-lg border border-green-700"
+                >
+                  Thank you! Our expert will call you shortly.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Fixed Corner CTA Button -->
+    <button
+      style="background-color: var(--secondary-color); border-radius: 10px"
+      id="fixed-cta"
+      class="fixed bottom-6 right-6 lg:bottom-10 lg:right-10 btn-primary !shadow-2xl !px-4 !py-3 !rounded-full !text-sm flex items-center"
+      data-modal-target="lead-modal"
+    >
+      <i data-lucide="phone-call" class="w-4 h-4 mr-2"></i> Quick Enquiry
+    </button>
+
+    <!-- Back to Top Button -->
+    <button
+      style="background-color: var(--secondary-color); border-radius: 10px"
+      id="back-to-top"
+      class="fixed bottom-24 right-6 lg:bottom-28 lg:right-10 p-3 bg-gray-700 text-white rounded-full shadow-lg opacity-0 transition-opacity duration-300 z-40 hover:bg-[var(--primary-color)]"
+    >
+      <i data-lucide="chevron-up" class="w-5 h-5"></i>
+    </button>
+
+    <!-- Lead Capture Modal Form -->
+    <div
+      id="lead-modal"
+      class="modal-container fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-70"
+    >
+      <div
+        class="modal-content w-full max-w-lg bg-[var(--section-bg-light)] text-white rounded-xl shadow-3xl p-6 md:p-8 relative border border-gray-800"
+      >
+        <!-- Close Button -->
+        <button
+          style="background-color: var(--secondary-color); border-radius: 10px"
+          class="modal-close absolute top-3 right-3 p-2 text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-200"
+          data-modal-close="lead-modal"
+        >
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+
+        <h3 class="text-2xl font-bold mb-4 text-[var(--primary-color)]">
+          Get Exclusive Offers & Pricing
+        </h3>
+        <p class="text-gray-300 mb-6">
+          Fill in your details to receive the full brochure and pricing sheet
+          immediately.
+        </p>
+
+        <form id="modal-form" class="space-y-4">
+          <div>
+            <input
+              type="text"
+              id="modal-name"
+              name="name"
+              placeholder="Full Name"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-name-error">
+              Name is required.
+            </p>
+          </div>
+          <div>
+            <input
+              type="email"
+              id="modal-email"
+              name="email"
+              placeholder="Email Address"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-email-error">
+              Enter a valid email address.
+            </p>
+          </div>
+          <div>
+            <input
+              type="tel"
+              id="modal-phone"
+              name="mobile"
+              placeholder="Phone Number"
+              required
+              class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white"
+            />
+            <p class="text-red-400 text-sm mt-1 hidden" id="modal-phone-error">
+              Phone number is required.
+            </p>
+          </div>
+          <div>
+            <!-- <select id="modal-interest" name="interest" required class="w-full p-3 border border-gray-600 rounded-lg focus:ring-2 focus:ring-[var(--secondary-color)] outline-none bg-gray-900 text-white">
+                        <option value="" disabled selected class="text-gray-500">Select Project Interest (e.g., 2 BHK)</option>
+                        <option value="2BHK">2 BHK</option>
+                        <option value="3BHK_Standard">3 BHK Standard</option>
+                        <option value="3BHK_Grande">3 BHK Grande</option>
+                        <option value="Investment">Investment Enquiry</option>
+                    </select> -->
+            <p
+              class="text-red-400 text-sm mt-1 hidden"
+              id="modal-interest-error"
+            >
+              Please select an interest.
+            </p>
+          </div>
+
+          <button
+            id="modal-submit-btn"
+            style="
+              background-color: var(--secondary-color);
+              border-radius: 10px;
+            "
+            type="submit"
+            class="btn-primary w-full !text-lg !py-3"
+          >
+            SUBMIT
+          </button>
+          <div id="modal-success_message_col" class="mt-2"></div>
+          <div id="modal-error_message" class="error"></div>
+          <div
+            id="modal-thank-you"
+            class="text-center text-green-400 font-semibold hidden p-3 bg-green-900 rounded-lg border border-green-700"
+          >
+            Success! Check your email for the brochure. Our team will contact
+            you.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <!-- Brand Info -->
+          <div>
+            <h4 class="text-xl font-bold mb-3">Puravankara</h4>
+            <p class="text-sm text-gray-400">
+              Purvankara Code Name Bliss is a luxurious residential project
+              located in Hebbagodi, Bengaluru.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-sm">
+              <li>
+                <a
+                  href="#overview"
+                  class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >Overview</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#floorplan"
+                  class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >Floor Plans</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#amenities"
+                  class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >Amenities</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#location"
+                  class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >Location Map</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3">Contact Us</h4>
+            <ul class="space-y-2 text-sm text-gray-400">
+              <li>
+                <a
+                  href="mailto:sales@puravankarabliss.com"
+                  class="hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >marketing@homeaurarealtor.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tel:+919876543210"
+                  class="hover:text-[var(--secondary-color)] transition-colors duration-200"
+                  >+91 98807 79843</a
+                >
+              </li>
+              <li>Koramangala, Bangalore-560095</li>
+            </ul>
+          </div>
+
+          <!-- Social Media -->
+          <div>
+            <h4 class="text-lg font-semibold mb-3">Connect</h4>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                ><i data-lucide="facebook" class="w-6 h-6"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                ><i data-lucide="twitter" class="w-6 h-6"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                ><i data-lucide="linkedin" class="w-6 h-6"></i
+              ></a>
+              <a
+                href="#"
+                target="_blank"
+                class="text-gray-400 hover:text-[var(--secondary-color)] transition-colors duration-200"
+                ><i data-lucide="instagram" class="w-6 h-6"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright & Disclaimer -->
+        <div
+          class="pt-8 border-t border-gray-800 text-center text-sm text-gray-500"
+        >
+          &copy; 2025 Home Aura Realtor. All rights reserved. |
+          <!-- <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a> |
+                <a href="#" class="hover:text-white transition-colors duration-200">Disclaimer</a> -->
+          <p style="text-align: justify" class="mt-2 text-xs">
+            Disclaimer: The information provided on this website is exclusively
+            intended for informational purposes and should not be construed as
+            an offer of services and sale. The project mentioned on this website
+            currently has not yet received RERA clearance/number but is in the
+            process of registration with the karnataka Real Estate Regulatory
+            Authority. It is solely intended to generate interest through
+            polling, and the name shown on the website is not the proposed or
+            future name of the project; it is solely used for branding purposes
+            to generate interest. Additionally, we acknowledge that we are not
+            facilitating any sale or purchase within this proposed or pending
+            project. This website is managed by a RERA authorized real estate
+            agent named Propertypistol Realty Private Limited. The images shown
+            on this website are for reference purposes only and are not
+            connected with the proposed project before the Authority; they may
+            not accurately reflect the actual properties. Furthermore, we would
+            like to acknowledge that we may share your data with Real Estate
+            Regulatory Authority (RERA) registered Developers for polling and
+            interest purposes. Additionally, we may send updates and information
+            to the mobile number or email address registered with us regarding
+            your interest. All rights reserved. The content, design, and
+            information on this website are protected by copyright and other
+            intellectual property rights. Any unauthorized use or reproduction
+            of the content may violate applicable laws. Thank you for visiting
+            our website.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+      // Initialize Lucide Icons
+      lucide.createIcons();
+
+      // -----------------------------------------------------------
+      // 1. MODAL AND FORM HANDLING
+      // -----------------------------------------------------------
+      const modal = document.getElementById("lead-modal");
+      const modalOpenBtns = document.querySelectorAll(
+        '[data-modal-target="lead-modal"]'
+      );
+      const modalCloseBtn = document.querySelector(
+        '[data-modal-close="lead-modal"]'
+      );
+      const modalForm = document.getElementById("modal-form");
+      const contactForm = document.getElementById("contact-form");
+      const heroContactForm = document.getElementById("hero-contact-form"); // New form
+      const contactThankYou = document.getElementById("contact-thank-you");
+      const modalThankYou = document.getElementById("modal-thank-you");
+      const heroThankYou = document.getElementById("hero-thank-you"); // New thank you message
+
+      /**
+       * Opens the modal with smooth transition.
+       */
+      const openModal = () => {
+        modal.classList.add("modal-open");
+        document.body.style.overflow = "hidden"; // Prevent scrolling background
+        modalForm.reset(); // Reset form on open
+        modalThankYou.classList.add("hidden"); // Hide thank you
+        document
+          .querySelectorAll("#modal-form p.text-red-400")
+          .forEach((el) => el.classList.add("hidden")); // Hide errors
+      };
+
+      /**
+       * Closes the modal with smooth transition.
+       */
+      const closeModal = () => {
+        modal.classList.remove("modal-open");
+        document.body.style.overflow = "";
+      };
+
+      // Event Listeners for opening/closing the modal
+      modalOpenBtns.forEach((btn) => btn.addEventListener("click", openModal));
+      modalCloseBtn.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          closeModal(); // Close if clicking outside the modal content
+        }
+      });
+
+      /**
+       * Validates a single form field.
+       * @param {HTMLInputElement|HTMLSelectElement} field - The form field element.
+       * @param {string} errorId - The ID of the error message element.
+       * @returns {boolean} True if valid, false otherwise.
+       */
+      // const validateField = (field, errorId) => {
+      //   const errorElement = document.getElementById(errorId);
+      //   if (errorElement) errorElement.classList.add("hidden");
+      //   let isValid = true;
+
+      //   if (field.hasAttribute("required") && field.value.trim() === "") {
+      //     if (errorElement)
+      //       errorElement.textContent = `${
+      //         field.placeholder || field.name
+      //       } is required.`;
+      //     isValid = false;
+      //   } else if (field.name === "email" && field.value.trim() !== "") {
+      //     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //     if (!emailPattern.test(field.value.trim())) {
+      //       if (errorElement)
+      //         errorElement.textContent = "Enter a valid email address.";
+      //       isValid = false;
+      //     }
+      //   } else if (field.name === "phone" && field.value.trim() !== "") {
+      //     const phonePattern = /^\d{10,15}$/; // Basic international phone check (10-15 digits)
+      //     if (!phonePattern.test(field.value.trim())) {
+      //       if (errorElement)
+      //         errorElement.textContent =
+      //           "Enter a valid phone number (min 10 digits).";
+      //       isValid = false;
+      //     }
+      //   } else if (field.name === "interest" && field.value === "") {
+      //     if (errorElement)
+      //       errorElement.textContent = "Please select an interest.";
+      //     isValid = false;
+      //   } else if (field.id === "hero-consent" && !field.checked) {
+      //     // Special handling for the required consent checkbox (no inline error shown, but submission fails)
+      //     isValid = false;
+      //   }
+
+      //   if (!isValid) {
+      //     if (errorElement) errorElement.classList.remove("hidden");
+      //   }
+      //   return isValid;
+      // };
+
+      /**
+       * Handles form submission and validation.
+       * @param {Event} e - The form submission event.
+       * @param {HTMLElement} form - The form element.
+       * @param {HTMLElement} thankYouEl - The thank you message element.
+       */
+      // const handleFormSubmit = (e, form, thankYouEl) => {
+      //   e.preventDefault();
+      //   let allValid = true;
+      //   const formData = {};
+
+      //   // Clear all previous inline errors
+      //   form
+      //     .querySelectorAll("p.text-red-400")
+      //     .forEach((el) => el.classList.add("hidden"));
+
+      //   form
+      //     .querySelectorAll("input:not([readonly]), select, textarea")
+      //     .forEach((field) => {
+      //       const errorId = `${field.id}-error`;
+      //       const isConsent = field.id === "hero-consent";
+
+      //       // Skip validation for non-required or non-checked consent
+      //       if (!field.hasAttribute("required") && !isConsent) {
+      //         formData[field.name] = field.value.trim();
+      //         return;
+      //       }
+
+      //       // Check consent separately if it exists
+      //       if (isConsent && !field.checked) {
+      //         allValid = false;
+      //       } else if (!isConsent) {
+      //         const isValid = validateField(field, errorId);
+      //         if (!isValid) {
+      //           allValid = false;
+      //         }
+      //       }
+      //       formData[field.name] = field.value.trim();
+      //     });
+
+      //   if (allValid) {
+      //     // SUCCESS STATE: Simulate API call
+      //     console.log("Form Data Collected:", formData);
+
+      //     // Show success message and reset form
+      //     form.reset();
+      //     thankYouEl.classList.remove("hidden");
+
+      //     // Hide thank you message after 5 seconds
+      //     setTimeout(() => {
+      //       thankYouEl.classList.add("hidden");
+      //       if (form.id === "modal-form") {
+      //         closeModal();
+      //       }
+      //     }, 5000);
+      //   } else {
+      //     // Ensure form scrolls to show first error (optional, but good UX)
+      //     const firstError = form.querySelector("p.text-red-400:not(.hidden)");
+      //     if (firstError) {
+      //       firstError.scrollIntoView({ behavior: "smooth", block: "center" });
+      //     }
+      //   }
+      // };
+
+      // // Attach submit listeners to all three forms
+      // modalForm.addEventListener("submit", (e) =>
+      //   handleFormSubmit(e, modalForm, modalThankYou)
+      // );
+      // contactForm.addEventListener("submit", (e) =>
+      //   handleFormSubmit(e, contactForm, contactThankYou)
+      // );
+      // heroContactForm.addEventListener("submit", (e) =>
+      //   handleFormSubmit(e, heroContactForm, heroThankYou)
+      // );
+
+      // -----------------------------------------------------------
+      // 2. SMOOTH SCROLL & NAVIGATION
+      // -----------------------------------------------------------
+
+      /**
+       * Custom smooth scroll function.
+       * @param {string} targetId - The ID of the target section.
+       */
+      const smoothScroll = (targetId) => {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          const headerHeight = document.getElementById("header").offsetHeight;
+          const offset =
+            targetElement.getBoundingClientRect().top +
+            window.scrollY -
+            headerHeight;
+
+          window.scrollTo({
+            top: offset,
+            behavior: "smooth",
+          });
+
+          // Close mobile menu after navigation
+          if (
+            document.getElementById("mobile-menu").classList.contains("block")
+          ) {
+            document.getElementById("mobile-menu").classList.add("hidden");
+            document.getElementById("mobile-menu").classList.remove("block");
+          }
+        }
+      };
+
+      // Attach smooth scroll to all anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          smoothScroll(this.getAttribute("href"));
+        });
+      });
+
+      // -----------------------------------------------------------
+      // 3. RESPONSIVE NAVIGATION (Mobile Menu)
+      // -----------------------------------------------------------
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("block");
+      });
+
+      // Close menu on link click (for mobile)
+      document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("block");
+        });
+      });
+
+      // -----------------------------------------------------------
+      // 4. SCROLL ANIMATIONS (Intersection Observer)
+      // -----------------------------------------------------------
+      const animateElements = document.querySelectorAll(".animate-on-scroll");
+      const backToTopBtn = document.getElementById("back-to-top");
+
+      const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.15, // Trigger when 15% of the element is visible
+      };
+
+      /**
+       * Intersection Observer callback to handle element visibility.
+       * @param {Array<IntersectionObserverEntry>} entries
+       */
+      const observerCallback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add active class and stop observing
+            entry.target.classList.add("animate-active");
+            observer.unobserve(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions
+      );
+
+      // Observe all elements
+      animateElements.forEach((el, index) => {
+        // Apply staggered delay utility classes
+        el.classList.add(`stagger-delay-${(index % 8) + 1}`);
+        observer.observe(el);
+      });
+
+      // -----------------------------------------------------------
+      // 5. LAZY LOADING IMAGES
+      // -----------------------------------------------------------
+      const lazyImages = document.querySelectorAll("img.lazy-image");
+
+      const lazyImageObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const lazyImage = entry.target;
+              lazyImage.src = lazyImage.dataset.src;
+              lazyImage.classList.remove("lazy-image");
+              observer.unobserve(lazyImage);
+            }
+          });
+        }
+      );
+
+      lazyImages.forEach((image) => {
+        lazyImageObserver.observe(image);
+      });
+
+      // -----------------------------------------------------------
+      // 6. BACK TO TOP BUTTON VISIBILITY
+      // -----------------------------------------------------------
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 500) {
+          backToTopBtn.classList.remove("opacity-0");
+        } else {
+          backToTopBtn.classList.add("opacity-0");
+        }
+      });
+
+      backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    </script>
+    <script src="/assets/js/config.js"></script>
+    <script src="/assets/js/puravankara-codename-bliss.js"></script>
+  </body>
+</html>
